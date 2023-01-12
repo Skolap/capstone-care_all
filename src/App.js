@@ -1,12 +1,7 @@
 import React from "react";
-import CreateCustomerAccount from "./Components/CreateCustomerAccount";
+import CreateCustomerAccount from "./Components/Signup";
 function App() {
-  return (
-    <div className="App">
-      Start Here
-      <CreateCustomerAccount />
-    </div>
-  );
+  return <div className="App">Start Here</div>;
 }
 
 export default App;

@@ -7,16 +7,20 @@ import { auth, db } from "../FirebaseConfigs/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const JoinNow = () => {
   //Define Hooks
   const [username, setUsername] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+
   const nameChangeHandler = (event) => {
     setUsername(event.target.value);
-    console.log(username);
   };
   const mobileChangeHandler = (event) => {
     setMobileNumber(event.target.value);
@@ -30,8 +34,8 @@ const Login = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password).then(
-      (userCredential) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
 
@@ -42,12 +46,33 @@ const Login = () => {
           password: password,
           uid: user.uid,
         })
-          .then(console.log("successful"))
+          .then(() => {
+            setSuccessMsg(
+              "New user added successfully, You will now be automatically redirected to login page."
+            );
+            setUsername("");
+            setMobileNumber("");
+            setEmail("");
+            setPassword("");
+            setErrorMsg("");
+            setTimeout(() => {
+              setSuccessMsg("");
+              navigate("/home");
+            }, 4000);
+          })
           .catch((error) => {
-            console.log(error);
+            setErrorMsg(error.message);
           });
-      }
-    );
+      })
+      .catch((error) => {
+        console.log(error.message);
+        if (error.message === "Firebase: Error (auth/invalid-email).") {
+          setErrorMsg("Please fill all required fields");
+        }
+        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+          setErrorMsg("User already exists");
+        }
+      });
   };
   return (
     <div>
@@ -55,6 +80,18 @@ const Login = () => {
       <div>
         <form action="" onSubmit={submitHandler}>
           <p>Create Account</p>
+
+          {successMsg && (
+            <>
+              <div className="success-msg">{successMsg}</div>
+            </>
+          )}
+          {errorMsg && (
+            <>
+              <div className="error-msg">{errorMsg}</div>
+            </>
+          )}
+
           <label htmlFor="">Your Name </label>
           <input
             onChange={nameChangeHandler}
@@ -92,4 +129,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default JoinNow;

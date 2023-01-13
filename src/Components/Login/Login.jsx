@@ -1,96 +1,106 @@
-import React, { useState } from "react";
-import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
-
-  const auth = getAuth();
-  const navigate = useNavigate();
-
-  const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
-  };
-  const passwordChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
-  const loginHandler = (event) => {
+import React,{useState} from 'react' 
+import emailLogin from './emailLogin'
+import MobileLogin from './MobileLogin'
+function App() {
+	// React States
+	const [errorMessages, setErrorMessages] = useState({});
+	const [isSubmitted, setIsSubmitted] = useState(false);
+  
+	// User Login info
+	var database = [
+	  {
+		username: "EmailID",
+		password: "passw"
+	  }
+	]
+	var errors = {
+		uname: "invalid username",
+		pass: "invalid password"
+	  };
+	  var database = [
+		{
+			username:  "mobileNumber",
+			password:  "OTP "
+		}
+	  ]
+	  var errors = {
+		uname: "invalid username",
+		pass: "invalid password"
+	  };
+}
+const handleSubmit = (event) => {
+    //Prevent page reload
     event.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setSuccessMsg(
-          "Logged in successfully, you will be redirected to homepage"
-        );
 
-        // console.log(loggeduser.email)
-        setEmail("");
-        setPassword("");
-        setErrorMsg("");
-        setTimeout(() => {
-          setSuccessMsg("");
-          navigate("/home");
-        }, 3000);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        console.log(error.message);
-        if (error.message === "Firebase: Error (auth/invalid-email).") {
-          setErrorMsg("Please fill all required fields");
-        }
-        if (error.message === "Firebase: Error (auth/user-not-found).") {
-          setErrorMsg("Email not found");
-        }
-        if (error.message === "Firebase: Error (auth/wrong-password).") {
-          setErrorMsg("Wrong Password");
-        }
-      });
+    var { uname, pass } = document.forms[0];
+
+    // Find user login info
+    const userData = database.find((user) => user.username === uname.value);
+
+    // Compare user info
+    if (userData) {
+      if (userData.password !== pass.value) {
+        // Invalid password
+        setErrorMessages({ name: "pass", message: errors.pass });
+      } else {
+        setIsSubmitted(true);
+      }
+    } else {
+      // Username not found
+      setErrorMessages({ name: "uname", message: errors.uname });
+    }
   };
+
+  // Generate JSX code for error message
+  const renderErrorMessage = (name) =>
+    name === errorMessages.name && (
+      <div className="error">{errorMessages.message}</div>
+    );
+
+  // JSX code for login form
+  const renderForm = (
+    <div className="form">
+      <form onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label>Email </label>
+          <input type="text" name="email" required />
+          {renderErrorMessage("email")}
+        </div>
+        <div className="input-container">
+          <label>Password </label>
+          <input type="password" name="passw" required />
+          {renderErrorMessage("passw")}
+        </div>
+        <div className="button-container">
+          <input type="submit" />
+        </div>
+		<div className="input-container">
+          <label>mobileNumber</label>
+          <input type="number" name="mobilenumber" required />
+          {renderErrorMessage("mobileNumber")}
+        </div>
+		<div className="input-container">
+          <label>OTP</label>
+          <input type="number" name="otp" required />
+          {renderErrorMessage("otp")}
+        </div>
+		<div className="button-container">
+          <input type="submit" />
+        </div>
+      </form>
+    </div>
+  );
 
   return (
-    <div>
-      <Navbar />
-      <div>
-        <form action="">
-          <p>Login</p>
+    <div className="app">
+      <div className="login-form">
+       
 
-          {successMsg && (
-            <>
-              <div className="success-msg">{successMsg}</div>
-            </>
-          )}
-          {errorMsg && (
-            <>
-              <div className="error-msg">{errorMsg}</div>
-            </>
-          )}
-
-          <label htmlFor="">Email</label>
-          <input
-            type="email"
-            onChange={emailChangeHandler}
-            placeholder="Enter Your Email"
-          />
-
-          <label htmlFor="">Password</label>
-          <input
-            type="tel"
-            onChange={passwordChangeHandler}
-            placeholder="Choose Your Password"
-          />
-          <button onClick={loginHandler}>Login</button>
-          <div>
-            <span>Don't have account?</span>
-            <Link to="/signup">Sigh Up</Link>
-          </div>
-        </form>
+ <div className="title">Sign In</div>
+        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
       </div>
     </div>
   );
-};
 
-export default Login;
+
+export default App;

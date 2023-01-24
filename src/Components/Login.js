@@ -61,12 +61,16 @@ const Login = () => {
           <form action="" className="">
             {successMsg && (
               <>
-                <div className="success-msg">{successMsg}</div>
+                <div className="bg-green-600 bg-opacity-50 p-1 text-center text-white">
+                  {successMsg}
+                </div>
               </>
             )}
             {errorMsg && (
               <>
-                <div className="error-msg">{errorMsg}</div>
+                <div className="bg-orange-400 bg-opacity-50 p-1 text-center text-white">
+                  {errorMsg}
+                </div>
               </>
             )}
             <div>

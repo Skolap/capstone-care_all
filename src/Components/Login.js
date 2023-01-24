@@ -55,39 +55,54 @@ const Login = () => {
     <div>
       <Navbar />
       <div>
-        <form action="">
-          <p>Login</p>
+        <p className="text-2xl text-center">Login</p>
 
-          {successMsg && (
-            <>
-              <div className="success-msg">{successMsg}</div>
-            </>
-          )}
-          {errorMsg && (
-            <>
-              <div className="error-msg">{errorMsg}</div>
-            </>
-          )}
-
-          <label htmlFor="">Email</label>
-          <input
-            type="email"
-            onChange={emailChangeHandler}
-            placeholder="Enter Your Email"
-          />
-
-          <label htmlFor="">Password</label>
-          <input
-            type="tel"
-            onChange={passwordChangeHandler}
-            placeholder="Choose Your Password"
-          />
-          <button onClick={loginHandler}>Login</button>
-          <div>
-            <span>Don't have account?</span>
-            <Link to="/signup">Sigh Up</Link>
-          </div>
-        </form>
+        <div className="flex flex-col items-center p-20 bg-red-700 max-w-max mx-auto text-right">
+          <form action="" className="">
+            {successMsg && (
+              <>
+                <div className="success-msg">{successMsg}</div>
+              </>
+            )}
+            {errorMsg && (
+              <>
+                <div className="error-msg">{errorMsg}</div>
+              </>
+            )}
+            <div>
+              <div className="m-2">
+                <label className="m-2 p-2">Email</label>
+                <input
+                  className="p-1"
+                  type="email"
+                  onChange={emailChangeHandler}
+                  placeholder="Enter Your Email"
+                />
+              </div>
+              <div className="m-2">
+                <label className="m-2 p-2">Password</label>
+                <input
+                  className="p-1"
+                  type="password"
+                  onChange={passwordChangeHandler}
+                  placeholder="Choose Your Password"
+                />
+              </div>
+            </div>
+            <div className="text-center mt-9">
+              <button
+                className="py-2 px-5 bg-slate-50 rounded-lg"
+                onClick={loginHandler}
+              >
+                Login
+              </button>
+            </div>
+            <div className="text-left text-white p-3 mt-5">
+              <span>Don't have account? </span>
+              <Link to="/joinnow">Sign Up</Link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

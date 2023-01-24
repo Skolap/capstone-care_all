@@ -6,6 +6,7 @@ import Signup from "./Components/JoinNow";
 import NotFound from "./Components/NotFound";
 import MoreInfo from "./Components/SearchForCareTaker/MoreInfo";
 import SearchResults from "./Components/SearchForCareTaker/SearchResulls";
+import EmployeeProfile from "./Components/EmployeeProfile";
 // import Navbar from "./Components/Navbar";
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/searchresults" element={<SearchResults />} />
         <Route path="moreinfo" element={<MoreInfo />} />
+        <Route path="/employee/:id" element={<EmployeeProfile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

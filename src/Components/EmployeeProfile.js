@@ -34,14 +34,32 @@ const EmployeeProfile = () => {
                 <p className="font-bold">₹{employee.Price}</p>
                 <p>Rate Per Hour</p>
               </div>
+              <div className="text-center m-3">
+                <p className="font-bold">{employee.Gender}</p>
+                <p>Gender</p>
+              </div>
             </div>
 
             {/* <p className="">Address: {employee.Address}</p> */}
           </div>
         </div>
       </div>
-      <div className="w-3/5 mx-auto bg-[#00364E] rounded-xl">
-        sfahfljhaskjhfkjah
+      <div className="w-3/5 mx-auto bg-[#00364E] rounded-xl p-4 text-gray-300">
+        <p className="text-white font-bold text-xl">
+          {employee.Name}'s Information
+        </p>
+        <div className="flex gap-2">
+          <p className="font-bold">Address: </p>
+          <p>{employee.Address}</p>
+        </div>
+        <div className="flex gap-2">
+          <p className="font-bold">Phone: </p>
+          <p>{employee.Phone}</p>
+        </div>
+        <div>
+          <p className="font-bold">Bio:</p>
+          <p>{employee.Summery}</p>
+        </div>
       </div>
     </div>
   );

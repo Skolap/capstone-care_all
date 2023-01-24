@@ -57,18 +57,18 @@ const Login = () => {
       <div>
         <p className="text-2xl text-center">Login</p>
 
-        <div className="flex flex-col items-center p-20 bg-red-700 max-w-max mx-auto text-right">
+        <div className="flex flex-col items-center p-20 rounded-lg bg-red-700 max-w-max mx-auto text-right">
           <form action="" className="">
             {successMsg && (
               <>
-                <div className="bg-green-600 bg-opacity-50 p-1 text-center text-white">
+                <div className="bg-green-600 bg-opacity-50 p-1 rounded-md text-center text-white">
                   {successMsg}
                 </div>
               </>
             )}
             {errorMsg && (
               <>
-                <div className="bg-orange-400 bg-opacity-50 p-1 text-center text-white">
+                <div className="bg-orange-400 bg-opacity-50 p-1 rounded-md text-center text-white">
                   {errorMsg}
                 </div>
               </>

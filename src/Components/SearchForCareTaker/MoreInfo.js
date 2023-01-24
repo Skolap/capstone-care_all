@@ -30,7 +30,7 @@ const MoreInfo = (props) => {
       <Navbar />
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-2xl">We need More Info</h1>
-        <div className="w-1/4 bg-red-700">
+        <div className="w-1/4 bg-red-700 rounded-lg">
           <form onSubmit={submitHandler} className="">
             <div className="flex flex-col p-4 text-black">
               <div className="flex flex-col p-4">

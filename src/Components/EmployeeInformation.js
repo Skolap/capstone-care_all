@@ -77,7 +77,7 @@ const sitterInformation = [
     OperatingPin2: 550000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 3,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -94,7 +94,7 @@ const sitterInformation = [
     OperatingPin2: 200000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 8,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -111,7 +111,7 @@ const sitterInformation = [
     OperatingPin2: 600000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 7,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -128,7 +128,7 @@ const sitterInformation = [
     OperatingPin2: 600000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 9,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -162,7 +162,7 @@ const sitterInformation = [
     OperatingPin2: 200000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 7,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -179,7 +179,7 @@ const sitterInformation = [
     OperatingPin2: 200000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 2,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -192,16 +192,16 @@ const sitterInformation = [
     Address: "Street Number 6, Uma Nagar, Begumpet, Hyderabad",
     Phone: "+91 3058469509",
     Gender: "Female",
-    OperatingPin1: 500000,
-    OperatingPin2: 550000,
+    OperatingPin1: 100000,
+    OperatingPin2: 250000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 1,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
     Profile:
-      "https://t3.ftcdn.net/jpg/02/81/81/86/240_F_281818663_XXRCNuGktKeZsnknqWkKI0rR4JPWui3H.jpg",
+      "https://t3.ftcdn.net/jpg/05/05/18/12/240_F_505181244_DRaXgcbNrIYdNqq4I2b0jLYOeSQYq3wh.jpg",
   },
   {
     ID: 13,
@@ -209,15 +209,16 @@ const sitterInformation = [
     Address: "Panta Kaluva Rd, K P Nagar, Benz Circle, Vijayawada",
     Phone: "+91 3058469509",
     Gender: "Male",
-    OperatingPin1: 500000,
-    OperatingPin2: 550000,
+    OperatingPin1: 200000,
+    OperatingPin2: 450000,
     Age: 28,
     Rating: 3,
     Experience: 5,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
-    Profile: "https://as.ftcdn.net/v1/pics/placeholders/spacer.gif",
+    Profile:
+      "https://t3.ftcdn.net/jpg/02/95/58/22/240_F_295582214_IJrBXV3TJeNavfozclGX88TMVESBMWAV.jpg",
   },
   {
     ID: 14,
@@ -229,7 +230,7 @@ const sitterInformation = [
     OperatingPin2: 800000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 1,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -246,7 +247,7 @@ const sitterInformation = [
     OperatingPin2: 800000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 3,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -263,7 +264,7 @@ const sitterInformation = [
     OperatingPin2: 250000,
     Age: 28,
     Rating: 3,
-    Experience: 5,
+    Experience: 10,
     Price: 500,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
@@ -272,7 +273,7 @@ const sitterInformation = [
   },
   {
     ID: 17,
-    Name: "Random",
+    Name: "Rakesh Shinde",
     Address: "National Highway 333",
     Phone: "+91 3058469509",
     Gender: "Male",
@@ -280,7 +281,7 @@ const sitterInformation = [
     OperatingPin2: 850000,
     Age: 28,
     Rating: 4,
-    Experience: 20,
+    Experience: 15,
     Price: 1000,
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",

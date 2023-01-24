@@ -8,7 +8,7 @@ const SearchResultCard = (props) => {
   return (
     <div>
       <Link to={link}>
-        <div className="bg-[#00364E] text-white m-2 flex max-w-6xl mx-auto rounded-xl">
+        <div className="bg-[#00364E] text-white m-5 flex max-w-6xl mx-auto rounded-xl justify-center items-center">
           <div className="m-5">
             <img
               className="w-32 h-32 rounded-full"
@@ -19,14 +19,16 @@ const SearchResultCard = (props) => {
           <div className="p-2">
             <p className="text-xl font-bold">{props.Name}</p>
             <div className="text-gray-300">
-              <p>{props.Address}</p>
               <p>Gender: {props.Gender}</p>
               <p>Experience: {props.Experience} Years</p>
               <p>Price: ₹{props.Price}</p>
-              <p>Phone: {props.Phone}</p>
             </div>
           </div>
-          <button>Book Now</button>
+          <div className="ml-[600px]">
+            <button className="py-2 px-5 bg-slate-50 rounded-lg text-black">
+              Book Now
+            </button>
+          </div>
         </div>
       </Link>
     </div>

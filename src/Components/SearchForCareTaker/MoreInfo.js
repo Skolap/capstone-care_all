@@ -1,15 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../Navbar";
+import { useNavigate } from "react-router-dom";
+// import Navbar from "../Navbar";
 import Footer from "../Footer";
 const MoreInfo = (props) => {
   const [enteredPin, setEnteredPin] = useState(null);
   const [EnteredMinExperience, setEnteredMinExperience] = useState(null);
 
+  //get pincode from Form
   const pinHandler = (event) => {
     setEnteredPin(event.target.value);
   };
+  //get experience from form
   const minExperinceHandler = (event) => {
     setEnteredMinExperience(event.target.value);
   };
@@ -27,7 +29,7 @@ const MoreInfo = (props) => {
 
   return (
     <div className="">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-2xl">We need More Info</h1>
         <div className="w-1/4 bg-red-700 rounded-lg">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 // import sitterInformation from "../../EmployeeInformation";
 import sitterInformation from "../EmployeeInformation";
-import Navbar from "../Navbar";
+// import Navbar from "../Navbar";
 import SearchResultCard from "./SearchResultCard";
 
 const SearchResults = () => {
@@ -38,7 +38,7 @@ const SearchResults = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {x.length > 0 ? x.map(CreateCard) : <div>No Data Found</div>}
       {/* {x.map(CreateCard)} */}
     </>

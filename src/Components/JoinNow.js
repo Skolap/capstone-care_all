@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../FirebaseConfigs/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 const JoinNow = () => {
   //Define Hooks
@@ -77,7 +77,7 @@ const JoinNow = () => {
   };
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="w-max mx-auto">
         <p className="text-2xl text-center">Create Account</p>
         <div className="flex flex-col items-center p-20 bg-red-700 max-w-max mx-auto text-right rounded-lg">

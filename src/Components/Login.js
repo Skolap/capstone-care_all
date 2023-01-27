@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, matchPath, useLocation } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,12 +13,20 @@ const Login = () => {
   const auth = getAuth();
   const navigate = useNavigate();
 
+  //Get current path using location.pathname
+  const location = useLocation();
+
+  //Get Email from Form
   const emailChangeHandler = (event) => {
     setEmail(event.target.value);
   };
+
+  //Get Password from form
   const passwordChangeHandler = (event) => {
     setPassword(event.target.value);
   };
+
+  //Execute when clicked on login
   const loginHandler = (event) => {
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -33,11 +41,11 @@ const Login = () => {
         setErrorMsg("");
         setTimeout(() => {
           setSuccessMsg("");
-          navigate("/home");
+          location.pathname === "/login" && navigate("/");
         }, 3000);
       })
       .catch((error) => {
-        const errorCode = error.code;
+        // const errorCode = error.code;
         console.log(error.message);
         if (error.message === "Firebase: Error (auth/invalid-email).") {
           setErrorMsg("Please fill all required fields");
@@ -53,7 +61,7 @@ const Login = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <p className="text-2xl text-center">Login</p>
 

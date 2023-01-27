@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import sitterInformation from "./EmployeeInformation";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 
 const EmployeeProfile = () => {
   //Get id from url
@@ -13,7 +13,7 @@ const EmployeeProfile = () => {
 
   return (
     <div className="flex flex-col gap-1">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="w-3/5 mx-auto bg-[#00364E] rounded-xl">
         <div className="flex p-4 items-end">
           <div className="">

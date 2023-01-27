@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import Banner from "../Assets/Images/banner.png";
 import bg_check from "../Assets/Icons/bg_check.svg";
@@ -10,7 +10,7 @@ import Footer from "./Footer";
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex flex-col">
         <div
           className=" h-screen bg-contain bg-no-repeat"

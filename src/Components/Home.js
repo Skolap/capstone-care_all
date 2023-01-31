@@ -60,7 +60,7 @@ const Home = () => {
                 Pet Care
               </p>
             </Link>
-            <Link to="/moreinfo" className="group p-6 m-2  bg-white">
+            <Link to="/map" className="group p-6 m-2  bg-white">
               <img
                 className="w-24 h-24 group-hover:scale-110 ease-in duration-[110ms]"
                 src={require("../Assets/Icons/Daycare.png")}

@@ -9,6 +9,7 @@ import SearchResults from "./Components/SearchForCareTaker/SearchResulls";
 import EmployeeProfile from "./Components/EmployeeProfile";
 import Navbar from "./Components/Navbar";
 import { auth } from "./FirebaseConfigs/firebaseConfig";
+import Booking from "./Components/SearchForCareTaker/Booking";
 
 function App() {
   const [isAuthenticated, setAuthenticated] = useState(false);
@@ -43,6 +44,7 @@ function App() {
           path="/employee/:id"
           element={isAuthenticated ? <EmployeeProfile /> : <Login />}
         />
+        <Route path="/booking" element={<Booking />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

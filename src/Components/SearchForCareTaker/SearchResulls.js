@@ -18,30 +18,28 @@ const SearchResults = () => {
       sitter.Experience > Number(allInfo.MinExperience)
   );
 
-  console.log(`XLength: ${x.length}`);
+  console.log(`X from searchResult ${allInfo}`);
 
   const CreateCard = (x2) => {
     return (
-      <SearchResultCard
-        key={x2.ID}
-        id={x2.ID}
-        Name={x2.Name}
-        Profile={x2.Profile}
-        Address={x2.Address}
-        Gender={x2.Gender}
-        Experience={x2.Experience}
-        Price={x2.Price}
-        Phone={x2.Phone}
-      />
+      <div>
+        <SearchResultCard
+          key={x2.ID}
+          id={x2.ID}
+          Name={x2.Name}
+          Profile={x2.Profile}
+          Address={x2.Address}
+          Gender={x2.Gender}
+          Experience={x2.Experience}
+          Price={x2.Price}
+          Phone={x2.Phone}
+        />
+      </div>
     );
   };
 
   return (
-    <>
-      {/* <Navbar /> */}
-      {x.length > 0 ? x.map(CreateCard) : <div>No Data Found</div>}
-      {/* {x.map(CreateCard)} */}
-    </>
+    <div>{x.length > 0 ? x.map(CreateCard) : <div>No Data Found</div>}</div>
   );
 };
 

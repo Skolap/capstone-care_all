@@ -9,6 +9,7 @@ const SearchResults = () => {
   const location = useLocation();
 
   //save data in allinfo
+  // eslint-disable-next-line
   const [allInfo, setAllInfo] = useState(location.state);
 
   //Filter the data for provided pincode and experience

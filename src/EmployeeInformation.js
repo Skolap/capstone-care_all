@@ -218,7 +218,7 @@ const sitterInformation = [
     Summery:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis labore consequatur deserunt veniam nam dolore distinctio atque aliquid, quia reiciendis qui dolor et nemo, voluptates pariatur velit illo alias ducimus!",
     Profile:
-      "https://t3.ftcdn.net/jpg/02/95/58/22/240_F_295582214_IJrBXV3TJeNavfozclGX88TMVESBMWAV.jpg",
+      "https://as2.ftcdn.net/v2/jpg/04/31/53/49/1000_F_431534927_fd6pw6iz6OHtnzgxOo6pcBuVebJiV5o0.jpg",
   },
   {
     ID: 14,

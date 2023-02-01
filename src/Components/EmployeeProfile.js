@@ -1,6 +1,5 @@
 // Import Statements
 import React from "react";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import sitterInformation from "../EmployeeInformation";
 
@@ -9,6 +8,7 @@ const EmployeeProfile = () => {
   const params = useParams();
 
   //Find object that matches id getting from params.id
+  // eslint-disable-next-line
   const employee = sitterInformation.find((sitter) => sitter.ID == params.id);
 
   return (

@@ -1,27 +1,31 @@
+// Import Statements
 import React, { useState } from "react";
-// import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
+  // Define Hooks
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
+  // Get Auth from firebase
   const auth = getAuth();
+
+  // useNavigate for navigate to home page on successful login
   const navigate = useNavigate();
 
   //Get current path using location.pathname
   const location = useLocation();
 
-  //Get Email from Form
+  //Get Email from User
   const emailChangeHandler = (event) => {
     setEmail(event.target.value);
   };
 
-  //Get Password from form
+  //Get Password from User
   const passwordChangeHandler = (event) => {
     setPassword(event.target.value);
   };
@@ -29,16 +33,18 @@ const Login = () => {
   //Execute when clicked on login
   const loginHandler = (event) => {
     event.preventDefault();
+    // Use firebase method to login with username and password
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setSuccessMsg(
           "Logged in successfully, you will be redirected to homepage"
         );
-
-        // console.log(loggeduser.email)
+        // Clear form
         setEmail("");
         setPassword("");
         setErrorMsg("");
+
+        //Navigate to home if path is '/login' otherwise stay on same page
         setTimeout(() => {
           setSuccessMsg("");
           location.pathname === "/login" && navigate("/");
@@ -46,7 +52,7 @@ const Login = () => {
       })
       .catch((error) => {
         // const errorCode = error.code;
-        console.log(error.message);
+        // Set Error Message
         if (error.message === "Firebase: Error (auth/invalid-email).") {
           setErrorMsg("Please fill all required fields");
         }
@@ -67,6 +73,7 @@ const Login = () => {
 
         <div className="flex flex-col items-center p-20 rounded-lg bg-red-700 max-w-max mx-auto text-right">
           <form action="" className="">
+            {/* Show SuccessMsg or ErrorMsg if Available */}
             {successMsg && (
               <>
                 <div className="bg-green-600 bg-opacity-50 p-1 rounded-md text-center text-white">

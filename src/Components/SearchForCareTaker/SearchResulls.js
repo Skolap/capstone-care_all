@@ -1,45 +1,54 @@
+// Import Statements
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-// import sitterInformation from "../../EmployeeInformation";
-import sitterInformation from "../EmployeeInformation";
-// import Navbar from "../Navbar";
+import sitterInformation from "../../EmployeeInformation";
 import SearchResultCard from "./SearchResultCard";
 
 const SearchResults = () => {
-  //Get data from MoreInfo.js
+  //Get moreData object from MoreInfo.js
   const location = useLocation();
+
   //save data in allinfo
   const [allInfo, setAllInfo] = useState(location.state);
-  //Filter the data for conditions
-  const x = sitterInformation.filter(
+
+  //Filter the data for provided pincode and experience
+  const sitter = sitterInformation.filter(
     (sitter) =>
       Number(allInfo.pin) >= sitter.OperatingPin1 &&
       Number(allInfo.pin) <= sitter.OperatingPin2 &&
       sitter.Experience > Number(allInfo.MinExperience)
   );
 
-  console.log(`X from searchResult ${allInfo}`);
-
-  const CreateCard = (x2) => {
+  //Create card for Map
+  const CreateCard = (employee) => {
     return (
       <div>
+        {/* Send props to SearchResult Card */}
         <SearchResultCard
-          key={x2.ID}
-          id={x2.ID}
-          Name={x2.Name}
-          Profile={x2.Profile}
-          Address={x2.Address}
-          Gender={x2.Gender}
-          Experience={x2.Experience}
-          Price={x2.Price}
-          Phone={x2.Phone}
+          key={employee.ID}
+          id={employee.ID}
+          Name={employee.Name}
+          Profile={employee.Profile}
+          Address={employee.Address}
+          Gender={employee.Gender}
+          Experience={employee.Experience}
+          Price={employee.Price}
+          Phone={employee.Phone}
         />
       </div>
     );
   };
 
   return (
-    <div>{x.length > 0 ? x.map(CreateCard) : <div>No Data Found</div>}</div>
+    <div>
+      {sitter.length > 0 ? (
+        sitter.map(CreateCard)
+      ) : (
+        <div className="flex items-center justify-center text-2xl">
+          No Data Found
+        </div>
+      )}
+    </div>
   );
 };
 

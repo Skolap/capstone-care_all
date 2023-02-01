@@ -1,15 +1,17 @@
+//Import Statements
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SearchResultCard = (props) => {
-  console.log(`Props: ${props}`);
+  //Url to use in Link
   const link = `/employee/${props.id}`;
 
+  //To redirect page to "/booking"
   const navigate = useNavigate();
 
+  //Book Now Button Handler; onClick redirect to "/booking" with "id, name and price"
   const bookNowHandler = (event) => {
     event.preventDefault();
-    console.log(props);
     navigate("/booking", {
       state: { id: props.id, name: props.Name, price: props.Price },
     });
@@ -22,7 +24,7 @@ const SearchResultCard = (props) => {
             <img
               className="w-32 h-32 rounded-full"
               src={props.Profile}
-              alt=""
+              alt={props.Name}
             />
           </div>
         </Link>

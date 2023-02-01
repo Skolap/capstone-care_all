@@ -6,16 +6,17 @@ import bg_check from "../Assets/Icons/bg_check.svg";
 import id_verif from "../Assets/Icons/id_verif.svg";
 import fraud_prev from "../Assets/Icons/fraud_prev.svg";
 import safty_screen from "../Assets/Icons/safty_screen.svg";
-import Footer from "./Footer";
 const Home = () => {
   return (
     <div>
       {/* <Navbar /> */}
       <div className="flex flex-col">
+        {/* Set Background Image */}
         <div
           className=" h-screen bg-contain bg-no-repeat"
           style={{ backgroundImage: `url(${Banner})` }}
         >
+          {/* Set HomeScreen Text */}
           <div className="p-3 h-screen mt-20">
             <div className="w-2/5 bg-opacity-10 bg-[#f63b3b]">
               <h1 className="text-6xl p-2">We Treat You Like Family</h1>
@@ -25,11 +26,14 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        {/* Setup Services Link */}
         <div className="flex flex-col align-middle justify-center p-2 border-b-2">
           <div className="text-center bg-opacity-10 bg-[#f63b3b]">
             <h1 className="text-center text-2xl p-4">Check Out Our Services</h1>
           </div>
           <div className="flex justify-around px-[100px] text-center">
+            {/* Child Care */}
             <Link to="/moreinfo" className="group p-6 m-2 bg-white">
               <img
                 className="w-24 h-24 group-hover:scale-110 ease-in duration-[110ms]"
@@ -40,6 +44,7 @@ const Home = () => {
                 Child Care
               </p>
             </Link>
+            {/* Adult Care */}
             <Link to="/moreinfo" className="group p-6 m-2  bg-white">
               <img
                 className="w-24 h-24 group-hover:scale-110 ease-in duration-[110ms]"
@@ -50,6 +55,7 @@ const Home = () => {
                 Adult Care
               </p>
             </Link>
+            {/* Pet Care */}
             <Link to="/moreinfo" className="group p-6 m-2  bg-white">
               <img
                 className="w-24 h-24 group-hover:scale-110 ease-in duration-[110ms]"
@@ -60,6 +66,7 @@ const Home = () => {
                 Pet Care
               </p>
             </Link>
+            {/* Day Care */}
             <Link to="/map" className="group p-6 m-2  bg-white">
               <img
                 className="w-24 h-24 group-hover:scale-110 ease-in duration-[110ms]"
@@ -71,6 +78,8 @@ const Home = () => {
               </p>
             </Link>
           </div>
+
+          {/* Safety Section */}
         </div>
         <div className="px-[10rem] py-2">
           <div className="">
@@ -125,7 +134,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

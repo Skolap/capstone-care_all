@@ -1,12 +1,10 @@
+// Import Statements
 import React, { useState } from "react";
-// import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
-
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../FirebaseConfigs/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-// import Footer from "./Footer";
 
 const JoinNow = () => {
   //Define Hooks
@@ -15,31 +13,36 @@ const JoinNow = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
-
   const [errorMsg, setErrorMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
 
+  const navigate = useNavigate();
+
+  //Get Name from user
   const nameChangeHandler = (event) => {
     setUsername(event.target.value);
   };
+  //Get Mobile from User
   const mobileChangeHandler = (event) => {
     setMobileNumber(event.target.value);
   };
+  // Get Email from User
   const emailChangeHandler = (event) => {
     setEmail(event.target.value);
   };
+  // Get Password from user
   const passwordChangeHandler = (event) => {
     setPassword(event.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
+    //Add user for Authentication
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
 
+        // Add User to 'users' collection in database
         addDoc(collection(db, "users"), {
           username: username,
           email: email,
@@ -51,11 +54,13 @@ const JoinNow = () => {
             setSuccessMsg(
               "New user added successfully, You will now be automatically redirected to login page."
             );
+            // Clear Form
             setUsername("");
             setMobileNumber("");
             setEmail("");
             setPassword("");
             setErrorMsg("");
+            // Redirect to '/login after 4sec'
             setTimeout(() => {
               setSuccessMsg("");
               navigate("/login");
@@ -66,7 +71,6 @@ const JoinNow = () => {
           });
       })
       .catch((error) => {
-        console.log(error.message);
         if (error.message === "Firebase: Error (auth/invalid-email).") {
           setErrorMsg("Please fill all required fields");
         }
@@ -76,7 +80,7 @@ const JoinNow = () => {
       });
   };
   return (
-    <div>
+    <div className="min-h-max">
       {/* <Navbar /> */}
       <div className="w-max mx-auto">
         <p className="text-2xl text-center">Create Account</p>

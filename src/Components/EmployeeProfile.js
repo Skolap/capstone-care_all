@@ -1,14 +1,14 @@
+// Import Statements
 import React from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import sitterInformation from "./EmployeeInformation";
-// import Navbar from "./Navbar";
+import sitterInformation from "../EmployeeInformation";
 
 const EmployeeProfile = () => {
   //Get id from url
   const params = useParams();
 
-  //Find object that matches id
+  //Find object that matches id getting from params.id
   const employee = sitterInformation.find((sitter) => sitter.ID == params.id);
 
   return (

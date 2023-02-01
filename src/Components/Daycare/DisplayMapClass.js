@@ -40,7 +40,7 @@ export class DisplayMapClass extends React.Component {
   render() {
     return (
       // Set a height on the map so it will display
-      <div ref={this.mapRef} className="h-screen" />
+      <div ref={this.mapRef} className="min-h-screen" />
     );
   }
 }

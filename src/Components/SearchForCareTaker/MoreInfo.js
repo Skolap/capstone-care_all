@@ -1,23 +1,25 @@
+//Import statements
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import Navbar from "../Navbar";
-import Footer from "../Footer";
 const MoreInfo = (props) => {
+  //defined props to store Pin and Min Experience
   const [enteredPin, setEnteredPin] = useState(null);
   const [EnteredMinExperience, setEnteredMinExperience] = useState(null);
 
-  //get pincode from Form
+  //useNavigate to navigate to searchresults on submit
+  const navigate = useNavigate();
+
+  //get pincode from user
   const pinHandler = (event) => {
     setEnteredPin(event.target.value);
   };
-  //get experience from form
+  //get experience from user
   const minExperinceHandler = (event) => {
     setEnteredMinExperience(event.target.value);
   };
 
-  const navigate = useNavigate();
-
+  //On submit navigate to "/searchresults" and send moreData
   const submitHandler = (event) => {
     event.preventDefault();
     const moreData = { pin: enteredPin, MinExperience: EnteredMinExperience };
@@ -29,7 +31,6 @@ const MoreInfo = (props) => {
 
   return (
     <div className="">
-      {/* <Navbar /> */}
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-2xl">We need More Info</h1>
         <div className="w-1/4 bg-red-700 rounded-lg">
@@ -62,7 +63,6 @@ const MoreInfo = (props) => {
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,9 +1,11 @@
+// Import Statements
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../Assets/Icons/Final_Care_All.svg";
 import { auth } from "../FirebaseConfigs/firebaseConfig";
 
 const Navbar = (props) => {
+  // SignOut Button
   const signOutUser = () => {
     auth.signOut();
   };
@@ -21,6 +23,7 @@ const Navbar = (props) => {
         >
           <button>Home</button>
         </Link>
+        {/* Show if not LoggedIn */}
         {!props.isAuthenticated ? (
           <Link
             to="/joinnow"
@@ -29,8 +32,14 @@ const Navbar = (props) => {
             <button>Join Now</button>
           </Link>
         ) : null}
+        {/* Show If LoggedIn */}
         {props.isAuthenticated ? (
-          <button onClick={signOutUser}>SignOut</button>
+          <button
+            onClick={signOutUser}
+            className="px-2 hover:bg-[#f63b3b] hover:text-white"
+          >
+            SignOut
+          </button>
         ) : (
           <Link
             to="/login"
